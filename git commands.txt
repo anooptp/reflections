@@ -34,6 +34,10 @@ You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
 state without impacting any branches by performing another checkout.
 
+
+# to go back to master
+git checkout master
+
 #######
 
 Configuring your name and email
@@ -69,3 +73,20 @@ git status
 
 #######
 
+Add files to staging area:
+
+git add <file_name>
+
+Deleting file from staging area:
+
+git reset <file_name>
+
+Comparing working directory and staging area:
+
+git diff
+
+Comparing staging area and git repository:
+
+git diff --staged
+
+#######
