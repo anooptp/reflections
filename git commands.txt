@@ -11,7 +11,7 @@ git log
 # to check difference between 2 versions
 git diff
 eg : 
-E:\codes\Git\version-control\asteroids [master]> git diff ac83b72030d79cf35944125793efcbdf57d93635 75928a98e18479b22b18888a33d36379f17b43c1
+...\version-control\asteroids [master]> git diff ac83b72030d79cf35944125793efcbdf57d93635 75928a98e18479b22b18888a33d36379f17b43c1
 
 #######
 
@@ -27,7 +27,7 @@ git config --global color.ui auto
 
 # git checkout : to get to a previous version
 
-E:\codes\Git\version-control\asteroids [master]> git checkout b0678b161fcf74467ed3a63110557e3d6229cfa6
+...\version-control\asteroids [master]> git checkout b0678b161fcf74467ed3a63110557e3d6229cfa6
 Note: checking out 'b0678b161fcf74467ed3a63110557e3d6229cfa6'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -100,3 +100,107 @@ git checkout master
 
 #######
 
+# To see different branches
+
+git branch
+
+# To create a new branch
+
+git branch <new_branch_name>
+eg: git branch easy-mode
+
+# To switch branch
+git checkout <new_branch_name>
+eg: git checkout easy-mode
+
+#######
+
+# git checkout coins
+
+...\version-control\asteroids [easy-mode]> git checkout coins
+Branch coins set up to track remote branch coins from origin.
+Switched to a new branch 'coins'
+
+Viewing the commit history
+
+The full command Caroline types to see the visual representation of the commit history is 
+
+git log --graph --oneline master coins
+
+#######
+
+# to create a new branch to retain commits you create 
+
+git checkout -b new_branch_name
+
+is equivalent to :
+git branch new_branch_name
+git checkout new_branch_name
+
+#######
+
+Merging branches:
+
+...\version-control\asteroids [master]> git branch
+  coins
+  easy-mode
+* master
+
+...\version-control\asteroids [master]> git merge master coins
+Auto-merging game.js
+Merge made by the 'recursive' strategy.
+ game.js | 161 +++++++++++++++++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 115 insertions(+), 46 deletions(-)
+
+...\version-control\asteroids [master]>
+
+#######
+
+Checking out the coins branch
+
+If you haven't already checked out the coins branch, you'll need to do so now with the command git checkout coins before you'll be able to refer to it. Once you've done that, decide whether you should keep it checked out or check out a different branch before completing the merge.
+
+A note about git merge
+
+git merge will also include the currently checked-out branch in the merged version. So if you have branch1 checked out, and you run git merge branch2 branch3, the merged version will combine branch1 as well as branch2 and branch3. That’s because the branch1 label will update after you make the merge commit, so it’s unlikely that you didn’t want the changes from branch1 included in the merge. For this reason, you should always checkout one of the two branches you’re planning on merging before doing the merge. Which one you should check out depends on which branch label you want to point to the new commit.
+
+#######
+
+# Comparing a commit to its parent
+
+The command Caroline mentions to compare a commit to its parent is 
+
+git show <commit_id>
+
+#######
+
+# Deleing a branch
+
+git branch -d <branch_name>
+
+...\version-control\asteroids [master]> git branch -d coins
+Deleted branch coins (was 354dfdd).
+
+#######
+
+# To view remotes
+
+git remote
+
+# To create remote 
+
+git remote <remote_name>
+
+#######
+
+git remote add origin1 https://github.com/anooptp/reflections.git
+
+...\version-control\reflections [master +0 ~3 -0]> git remote add origin1 https://github.com/anooptp/reflections.git
+...\version-control\reflections [master +0 ~3 -0]> git remote
+origin
+origin1
+...\version-control\reflections [master +0 ~3 -0]> git remote -v
+origin
+origin1 https://github.com/anooptp/reflections.git (fetch)
+origin1 https://github.com/anooptp/reflections.git (push)
+...\version-control\reflections [master +0 ~3 -0]>
