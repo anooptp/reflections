@@ -90,3 +90,13 @@ Comparing staging area and git repository:
 git diff --staged
 
 #######
+
+# Leave 'detached HEAD' state
+
+Right now, your HEAD should still be 'detached' from Lesson 1 when you checked out an old commit. 
+To fix that, run the command 
+git checkout master
+
+
+#######
+
