@@ -242,3 +242,146 @@ Fast-forward
 
 #######
 
+# To check all branches of a repository
+
+git branch -a
+-a stands for 'all'
+
+...\intro\recipes [master]> git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+
+
+...\intro\recipes [master]> git log origin/master
+<logs not updated>
+
+...\intro\recipes [master]> git fetch
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/anooptp/recipes
+   016dc33..e154fae  master     -> origin/master
+   
+   
+...\intro\recipes [master]> git log origin/master
+commit e154fae20d7b3e7b225df8fe15b154341ee66953
+Author: Sarah Spikes <sarah+github@udacity.com>
+Date:   Sun Oct 12 14:00:34 2014 +0530
+< comments get updated>
+
+...\intro\recipes [master]> git status
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+nothing to commit, working directory clean
+
+...\intro\recipes [master]> git merge master origin/master
+Auto-merging chili-recipe.txt
+CONFLICT (content): Merge conflict in chili-recipe.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+...\intro\recipes [master +0 ~0 -0 !1 | +0 ~0 -0 !1]> git status
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# You have unmerged paths.
+#   (fix conflicts and run "git commit")
+#
+# Unmerged paths:
+#   (use "git add <file>..." to mark resolution)
+#
+#       both modified:      chili-recipe.txt
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+# After making changes to the file add the file
+...\intro\recipes [master +0 ~0 -0 !1 | +0 ~0 -0 !1]> git add chili-recipe.txt
+...\intro\recipes [master +0 ~1 -0]>
+
+...\intro\recipes [master +0 ~1 -0]> git commit
+[master 873a806] Merge remote-tracking branch 'origin/master'
+
+...\intro\recipes [master]>
+
+...\intro\recipes [master]> git pull origin master
+From https://github.com/anooptp/recipes
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+...\intro\recipes [master]> git push origin master
+Counting objects: 13, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 916 bytes | 0 bytes/s, done.
+Total 9 (delta 6), reused 0 (delta 0)
+To https://github.com/anooptp/recipes.git
+   e154fae..873a806  master -> master
+
+...\intro\recipes [master]> git status
+# On branch master
+nothing to commit, working directory clean
+
+...\intro\recipes [master]>
+
+#############
+
+...\intro\recipes [master]> git pull origin master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 3 (delta 2), reused 3 (delta 2)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/anooptp/recipes
+ * branch            master     -> FETCH_HEAD
+   873a806..d803761  master     -> origin/master
+Updating 873a806..d803761
+Fast-forward
+ cake-recipe.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+...\intro\recipes [master]> git checkout different-oil
+Switched to branch 'different-oil'
+...\intro\recipes [different-oil]> git merge master different-oil
+Auto-merging cake-recipe.txt
+CONFLICT (content): Merge conflict in cake-recipe.txt
+Automatic merge failed; fix conflicts and then commit the result.
+...\intro\recipes [different-oil +0 ~0 -0 !1 | +0 ~0 -0 !1]>
+...\intro\recipes [different-oil +0 ~0 -0 !1 | +0 ~0 -0 !1]> git add cake-recipe.txt
+...\intro\recipes [different-oil +0 ~1 -0]> git status
+# On branch different-oil
+# All conflicts fixed but you are still merging.
+#   (use "git commit" to conclude merge)
+#
+# Changes to be committed:
+#
+#       modified:   cake-recipe.txt
+#
+...\intro\recipes [different-oil +0 ~1 -0]> git commit
+[different-oil 06480fe] Merge branch 'master' into different-oil
+...\intro\recipes [different-oil]>
+
+...\intro\recipes [different-oil]> git log
+commit 06480fe323f47b19bddafe069a307ed5551d43cd
+Merge: b558215 d803761
+Author: anooptp <anooptp6490@gmail.com>
+Date:   Sun Oct 12 16:26:59 2014 +0530
+
+    Merge branch 'master' into different-oil
+
+    Conflicts:
+        cake-recipe.txt
+
+commit d80376187bf83f5c873efbd58c25a3faecbe0624
+Author: Sarah Spikes <sarah+github@udacity.com>
+Date:   Sun Oct 12 16:04:38 2014 +0530
+
+    Merge pull request from more-oil
+
+    Add more oil so the cake is more moist!
+
+#############
+
