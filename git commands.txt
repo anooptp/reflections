@@ -207,6 +207,21 @@ origin1 https://github.com/anooptp/reflections.git (push)
 
 #######
 
+# Push the updates to github
+
+git push origin1 <branch_name>
+
+...\version-control\reflections [master]> git push origin1 master
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 624 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+To https://github.com/anooptp/reflections.git
+   7e1d2ad..b7992b0  master -> master
+
+#######
+
 # Pull the updated file from github
 
 git pull origin1 <branch_name>
