@@ -204,3 +204,26 @@ origin
 origin1 https://github.com/anooptp/reflections.git (fetch)
 origin1 https://github.com/anooptp/reflections.git (push)
 ...\version-control\reflections [master +0 ~3 -0]>
+
+#######
+
+# Pull the updated file from github
+
+git pull origin1 <branch_name>
+
+...\version-control\reflections [master +0 ~1 -0]> git pull origin1 master
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From https://github.com/anooptp/reflections
+ * branch            master     -> FETCH_HEAD
+   a30fc7e..7e1d2ad  master     -> origin1/master
+Updating a30fc7e..7e1d2ad
+Fast-forward
+ lesson_3_reflection_prompts.txt | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+ create mode 100644 lesson_3_reflection_prompts.txt
+
+#######
+
